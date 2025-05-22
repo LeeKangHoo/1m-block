@@ -74,6 +74,9 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
                             printf("detect: %s\n",tmp_domain);
                             return nfq_set_verdict(qh, ntohl(ph->packet_id), NF_DROP, 0, NULL);
                         }
+                        else{
+                            return nfq_set_verdict(qh, ntohl(ph->packet_id), NF_ACCEPT, 0, NULL);
+                        }
                     }
                 }
             }
