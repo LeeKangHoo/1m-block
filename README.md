@@ -17,8 +17,8 @@ sudo apt install libnetfilter-queue-dev
 ```
 **iptables 설정**
 ```
-iptables -A OUTPUT -j NFQUEUE -lnetfilter_queue
-iptables -A INPUT -j NFQUEUE -lnetfilter_queue
+iptables -A OUTPUT -j NFQUEUE --queue-num 0
+iptables -A INPUT -j NFQUEUE --queue-num 0
 ```
 위 설정이 되어있는지 먼저 확인 해야합니다. (netfilter 큐로 jump시킴)
 
